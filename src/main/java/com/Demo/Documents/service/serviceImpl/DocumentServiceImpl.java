@@ -55,9 +55,9 @@ public class DocumentServiceImpl implements DocumentService {
         }
 
         Files.copy(file.getInputStream(), Paths.get(fullPathWithFileName));
-        DocumentsDetails dc=new DocumentsDetails();
+       /* DocumentsDetails dc=new DocumentsDetails();
         dc.setFileName(filename);
-            DocumentsDetails details = this.documentRepo.save(dc);
+            DocumentsDetails details = this.documentRepo.save(dc);*/
             logger.info("complete Dao call for upload the documents file");
         return fileNameWithExtension;
         }

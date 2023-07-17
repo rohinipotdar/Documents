@@ -63,7 +63,12 @@ public class DocumentController {
             @PathVariable("documentId") String documentId) throws IOException {
         logger.info("Request entering for image upload");
         String uploadedDocuments = this.documentService.uploadDocuments(file, imageUploadPath);
-        return new ResponseEntity<>(uploadedDocuments,HttpStatus.CREATED);
+        DocumentsDetails dc=new DocumentsDetails();
+        dc.setFileName(uploadedDocuments);
+
+        documentRepo.save(dc);
+
+        return new ResponseEntity<>("Image uploaded successfully",HttpStatus.CREATED);
     }
     /*
      * @author: rohini
